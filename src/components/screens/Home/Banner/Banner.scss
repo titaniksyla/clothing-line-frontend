@@ -1,0 +1,66 @@
+.banner-container{
+  width: 100%;
+  min-height: 70vh;
+  background-image: url('../../../../assets/screens/Home/banner-assets/CategoryBanner-07.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  
+  .banner-description{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    h1{
+      font-family: prompt-medium;
+      font-size: 35px;
+    }
+    p{
+      font-family: prompt-light;
+      font-size: 18px;
+      width: 50%;
+    }
+  
+    h1,
+    p{
+      text-align: center;
+      color:rgb(255, 255, 255);
+      margin: 0 3%;
+    }
+  }
+
+  .shop-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100px;
+    height: 45px;
+
+    outline: 1px solid white;
+    cursor: pointer;
+    a{
+      font-family: prompt-light;
+      font-size: 16px;
+      color: white;
+    }
+
+    &:hover{
+      transition: ease-in-out 0.2s;
+      outline: 5px solid white;
+      a{
+        transform: scale(1.1);
+        transition: ease-in-out 0.2s;
+      }
+    }
+  }
+}

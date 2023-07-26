@@ -1,0 +1,121 @@
+.signup-container {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  .signup-form-container {
+    border: 1px solid rgb(184, 179, 179);
+    height: 100%;
+    padding: 5% 5%;
+    z-index: 3;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    .signup-title {
+      width: 100%;
+      height: 100%;
+      h1 {
+        font-size: 45px;
+        font-family: prompt-semibold;
+        color: #252525;
+      }
+    }
+    .signup-form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      .sm-input-container {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        gap: 10px;
+        .sm-input {
+          width: 100%;
+          height: 30px;
+          input {
+            height: 100%;
+            width: 100%;
+            padding: 15px;
+          }
+        }
+      }
+      .lg-input {
+        width: 100%;
+        height: 30px;
+        input {
+          width: 100%;
+          height: 100%;
+          padding: 0 15px;
+        }
+      }
+      .role-toggle {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        .role {
+          width: 50%;
+          display: flex;
+          justify-self: center;
+          align-items: center;
+          background-color: #4f4f4f;
+          color: white;
+          cursor: pointer;
+          p {
+            width: 100%;
+            font-size: 14px;
+            font-family: prompt-light;
+            text-align: center;
+          }
+        }
+        .role-active {
+          background-color: #252525;
+        }
+      }
+      .login-popup {
+        width: 100%;
+        p {
+          width: 100%;
+          text-align: start;
+          font-family: prompt-light;
+          font-size: 14px;
+          a {
+            text-decoration: underline;
+            font-family: prompt-light;
+            font-size: 14px;
+            color: rgb(0, 255, 0);
+          }
+        }
+      }
+      .btn-container {
+        width: 100%;
+        height: 100%;
+        .signup-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 100px;
+          height: 50px;
+
+          background-color: rgb(143, 241, 143);
+          font-family: prompt-light;
+          font-size: 16px;
+          cursor: pointer;
+          color: #252525;
+          &:hover{
+            transition:ease-in-out 0.2s;
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+}

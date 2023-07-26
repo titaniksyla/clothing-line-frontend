@@ -1,0 +1,50 @@
+/* Fonts ---------------- */
+@font-face {
+  font-family: courierprime-reg;
+  src: url('./fonts/SF-Pro-Display-Regular.woff');
+}
+
+@font-face {
+  font-family: prompt-light;
+  src: url('./fonts/Prompt-Light.woff');
+}
+
+@font-face {
+  font-family: prompt-medium;
+  src: url('./fonts/Prompt-Medium.woff');
+}
+
+@font-face {
+  font-family: prompt-semibold;
+  src: url('./fonts/Prompt-SemiBold.woff');
+}
+
+@font-face {
+  font-family: prompt-bold ;
+  src: url('./fonts/Prompt-Bold.woff');
+}
+
+@font-face {
+  font-family: sf-display-bold;
+  src: url('./SF-Pro-Display-Bold.woff');
+}
+@font-face {
+  font-family: sf-display-reg;
+  src: url('./SF-Pro-Display-Regular.woff');
+}
+@font-face {
+  font-family: sf-display-semibold;
+  src: url('./SF-Pro-Display-Semibold.woff');
+}
+@font-face {
+  font-family: sf-text-semibold;
+  src: url('./SF-Pro-Text-Semibold.woff');
+}
+@font-face {
+  font-family: urbanist-light;
+  src: url('./Urbanist-Light.woff');
+}
+@font-face {
+  font-family: urbanist-medium;
+  src: url('./Urbanist-Medium.woff');
+}

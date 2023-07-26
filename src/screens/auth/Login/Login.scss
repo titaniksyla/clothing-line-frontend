@@ -1,0 +1,80 @@
+.login-container{
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  .login-form-container{
+    border: 1px solid rgb(184, 179, 179);
+    height: 100%;
+    padding: 5% 5%;
+    z-index: 3;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    .login-title{
+      width: 100%;
+      height: 100%;
+      h1{
+        font-size: 45px;
+        font-family: prompt-semibold;
+        color: #252525;
+      }
+    }
+    .login-form{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      .sm-input{
+        width: 100%;
+        height: 30px;
+        input{
+          height: 100%;
+          width: 100%;
+          padding: 15px;
+        }
+      }
+      .signup-popup{
+        p{
+          font-family: prompt-light;
+          font-size: 14px;
+          a{
+            text-decoration: underline;
+            font-family: prompt-light;
+            font-size: 14px;
+            color: rgb(0, 255, 0);
+          }
+        }
+      }
+      .btn-container{
+        width: 100%;
+        height: 100%;
+        .login-btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  
+          width: 100px;
+          height: 50px;
+  
+          background-color: rgb(143, 241, 143);
+          font-size: 16px;
+          font-family: prompt-light;
+          cursor: pointer;
+          color:  #252525;
+          
+          &:hover{
+            transition:ease-in-out 0.2s;
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+}

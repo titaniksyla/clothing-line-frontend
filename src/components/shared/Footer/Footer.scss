@@ -1,0 +1,185 @@
+.footer-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #070707;
+  *{
+    color: #CDCDCD;
+  }
+  .footer-top{
+    width: 100%;
+    height: 100%;
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 4%;
+    border-bottom: 1px solid #202020;
+    .footer-left{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .footer-left-top{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .footer-logo{
+          h1{
+            font-size: 44px;
+            font-family: prompt-medium;
+            color: white;
+            &:hover{
+              transition: ease-in-out 0.2s;
+              color: rgb(143, 241, 143);
+            }
+          }
+        }
+        p{
+          font-size: 16px;
+          font-family: prompt-light;
+          line-height: 1.8;
+        }
+      }
+      .footer-left-bottom{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        p{
+          font-family: prompt-semibold;
+          font-size: 18px;
+        }
+        .footer-download{
+          display: flex;
+          gap: 10px;
+          cursor: pointer;
+          a{
+            .app-store{
+              background-image: url('./../../../assets/shared/footer-assets/download-on-the-app-store-apple-logo-svgrepo-com.png');
+              width: 175px;
+              height: 52px;
+            }
+            .google-store{
+              width: 175px;
+              height: 52px;
+              background-image: url('./../../../assets/shared/footer-assets/google-play-download-android-app-logo-svgrepo-com.png');
+            }
+          }
+        }
+      }
+    }
+    .footer-right{
+      padding: 2%;
+      display: flex;
+      gap:50px;
+      .footer-links-container{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .footer-links-title{
+          font-size: 18px;
+          font-family: prompt-semibold;
+          color: #DCDCDC;
+        }
+        .footer-link-container{
+          display: flex;
+          flex-direction: column;
+          gap:15px;
+          p{
+            font-size:16px;
+            font-family: prompt-light;
+            &:hover{
+              color: rgb(143, 241, 143);
+              transition: 0.2s;
+              transform: scaleX(1.05);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 5%;  
+    p{
+      font-size: 15px;
+      font-family: prompt-light;
+    }
+    .social-media-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .img-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40px;
+        height: 40px;
+        border: 1px solid #202020;
+        border-radius: 50%;
+        &:hover{
+          cursor: pointer;
+          transition: 0.2s;
+          background-color: rgb(143, 241, 143);
+        }
+      }
+    }
+  }
+}
+@media(max-width:1076px){
+  .footer-top{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    .footer-right,
+    .footer-left{
+      width: 100%;
+    }
+    .footer-left{
+      align-items: center;
+      .footer-left-top{
+        p{
+          text-align: center;
+        }
+        .footer-logo{
+          h1{
+            text-align: center;
+          }
+        }
+      }
+      .footer-left-bottom{
+        p{
+          text-align: center;
+        }
+      }
+    }
+    .footer-right{
+      justify-content: center;
+    }
+  }
+}
+
+@media(max-width:627px){
+  .footer-right{
+    flex-direction: column;
+    .footer-links-container{
+      width: 100%;
+      align-items: center;
+      .footer-link-container{
+        p{
+          text-align: center;
+        }
+      }
+    }
+  }
+  .footer-bottom{
+    flex-direction: column;
+    gap: 14px;
+    
+  }
+}
