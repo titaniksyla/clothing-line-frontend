@@ -241,7 +241,7 @@ function MyProfile(props) {
                         name="shipping"
                         id="shipping"
                         value={sellerProfileData.shipping}
-                        onChange={(e) => {
+                        onClick={(e) => {
                           setSellerProfileData({
                             ...sellerProfileData,
                             shipping: e.target.value,
@@ -251,7 +251,7 @@ function MyProfile(props) {
                         >false</option>
                       <option 
                          value={sellerProfileData.shipping}
-                         onChange={(e) => {
+                         onClick={(e) => {
                            setSellerProfileData({
                              ...sellerProfileData,
                              shipping: e.target.value,

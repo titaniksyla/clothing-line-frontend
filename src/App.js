@@ -16,6 +16,8 @@ import Signup from "./screens/auth/Signup/Signup";
 import MyProfile from "./screens/MyProfile/MyProfile";
 import NewProduct from "./components/shared/NewProduct/NewProduct";
 import MyItems from "./screens/MyItems/MyItems";
+import Brands from "./screens/Brands/Brands";
+import Brand from "./screens/Brand/Brand";
 // import MyProfile from './screens/MyProfile/MyProfile';
 
 function App() {
@@ -62,13 +64,16 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/myprofile" element={<MyProfile />} />
-            {/* <Route path="/newproduct" element={<NewProduct/>} />
-            <Route path="/itemslisted" element={<MyItems />} /> */}
+            <Route path="/newproduct" element={<NewProduct/>} />
+            <Route path="/itemslisted" element={<MyItems />} />
+            <Route path='/brands/:brandId' element={<Brand />} />
           </Routes>
         )}
         {!isUserLoggedIn && (
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path='/brands/:brandId' element={<Brand />} />
+            <Route path='/brands' element={<Brands />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route

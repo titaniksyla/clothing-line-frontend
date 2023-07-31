@@ -1,0 +1,38 @@
+.brand-container {
+  width: 100%;
+  height: 100%;
+  .brand-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 15% 10%;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    h1{
+      font-size: 60px;
+      font-family: prompt-bold;
+    }
+    h3{
+      font-size: 35px;
+      font-family: prompt-semibold;
+    }
+    h1,
+    h3 {
+      text-align: center;
+      color: rgb(143, 241, 143);
+      z-index: 8;
+    }
+    img{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+      height: 100%;
+      z-index: 3;
+    }
+  }
+}

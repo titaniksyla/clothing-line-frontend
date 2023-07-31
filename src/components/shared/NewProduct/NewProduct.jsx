@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./NewProduct.scss";
+import { useNavigate } from "react-router-dom";
 
 function NewProduct() {
 
-  const [productName, setProductName] = useState('');
-  const [productDescription, setProductDescription] = useState('');
-  const [productImage, setProductImage] = useState('');
-  const [productColor, setProductColor] = useState('');
-  const [productSize, setProductSize] = useState('');
-  const [qtyInStock, setQtyInStock] = useState('');
-  const [price, setPrice] = useState('');
+  const [productName, setProductName] = useState(null);
+  const [productDescription, setProductDescription] = useState(null);
+  const [productImage, setProductImage] = useState(null);
+  const [productColor, setProductColor] = useState(null);
+  const [productSize, setProductSize] = useState(null);
+  const [qtyInStock, setQtyInStock] = useState(null);
+  const [price, setPrice] = useState(null);
 
   const [showError, setShowError] = useState(false);
+  const navigate = useNavigate();
+
+  const [productData, setProductData] = useState({});
+  const [changed, setChanged] = useState(false);
 
   function handleProductName(e) {
     setProductName(e.target.value);
@@ -47,9 +52,9 @@ function NewProduct() {
   function validateProduct() {
     if (productName && productDescription && productImage && productColor && productSize && qtyInStock && price) {
       setShowError(false);
-
+      
       let user_id = localStorage.getItem('user_id'); 
-
+      
       let productObj = {
         product_name: productName,
         product_description: productDescription,
@@ -59,12 +64,14 @@ function NewProduct() {
         qty_in_stock: qtyInStock,
         price: price
       };
-
+      
       try{
         axios
         .post("http://localhost:8080/product", productObj)
         .then((data) => {
-          console.log(data)
+          navigate('/itemslisted');
+          // setProductData(data.data);
+          console.log('product data',data.data);
           toast.success('You\'ve  registred your new product', {
             position: "bottom-right",
             autoClose: 5000,
@@ -112,7 +119,7 @@ function NewProduct() {
 
           <div className="sm-input-container">
             <div className="sm-input">
-              <input type="text" name="productName" id="productName" placeholder="ProductName.." onChange={handleProductName} />
+              <input type="text" name="productName" id="productName" placeholder="ProductName.."  onChange={handleProductName} />
             </div>
             <div className="sm-input">
               <input
@@ -173,7 +180,7 @@ function NewProduct() {
           </div>
 
           <div className="btn-container">
-            <div className="newproduct-btn" onClick={validateProduct}>
+            <div className="newproduct-btn" onClick={ validateProduct}>
               Enter
             </div>
           </div>
