@@ -12,6 +12,7 @@ function Brand(props) {
 
   useEffect(() => {
     axios.get(`http://localhost:8080/brand/${brandId}`).then( data => {
+      let brand_id = localStorage.setItem('brand_id', `${brandId}`);
       setBrand(data.data.brand);
     })
   }, [brandId])

@@ -1,0 +1,113 @@
+.product-container{
+  width: 100%;
+  height: 100%;
+  padding: 8% 5%;
+  display: flex;
+  justify-content: center;
+  .product-flex-container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #252525;
+    .product-right{
+      width: 50%;
+      height: 100%;
+      display: flex;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid green;
+      }
+    }
+    .product-left{
+      width: 50%;
+      height: 100%;
+      padding: 0 2%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      h1,h3,p{ 
+        width: 100%;
+        font-family: prompt-semibold;
+      }
+      h1{
+        font-size: 20px;
+      }
+      h3{
+        font-size: 16px;
+      }
+      p{
+        font-size: 13px;
+        color: #acacac;
+      }
+      .edit-link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: prompt-semibold;
+        font-size: 24px;
+        color: #252525;
+        border: 1px solid #252525;
+        width: 100%;
+        height: 55px;
+        &:hover{
+          transition: ease-in-out 200ms;
+          transform: scale(0.9);
+        }
+      }
+      .btn-container{
+        width: 100%;
+        height: 100%;
+        .addCart-btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 60px;
+          z-index: 3;
+          background-color: rgb(143, 241, 143);
+          font-size: 16px;
+          font-family: prompt-light;
+          cursor: pointer;
+          color:  white;
+          
+          &:hover{
+            transition:ease-in-out 0.2s;
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width: 1450px){
+  .product-container{
+    .product-flex-container{
+      .product-left{
+        .edit-link{
+          font-size: 20px;
+          height: 40px;
+        }
+        .btn-container{
+          .addCart-btn{
+            font-size: 20px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width:1260px){
+  .product-container{
+    .product-flex-container{
+      .product-left{
+        gap: 5px;
+      }
+    }
+  }
+}

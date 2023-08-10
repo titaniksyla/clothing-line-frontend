@@ -19,11 +19,16 @@
     display: flex;
     gap: 15px;
     .nav-link{
-      a{
+      a,p{
+        cursor: pointer;
         p{
           font-family: prompt-medium;
           font-size: 16px;
           color:#252525;
+          display: flex;
+          gap: 3px;
+          justify-content: center;
+          align-items: center;
           &:hover{
           color: rgb(143, 241, 143);
           transition: 0.2s;
@@ -66,6 +71,23 @@
         &:active{
           background-color: transparent;
           text-decoration: underline;
+        }
+      }
+      .cart{
+        position: relative;
+        .cart-counter{
+          width: 12px;
+          height: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: rgb(143, 241, 143);
+          font-size: 7px;
+          font-family: prompt-medium;
+          position: absolute;
+          top: 28%;
+          right: 35%;
         }
       }
     }

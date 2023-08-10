@@ -1,53 +1,50 @@
-.brands-container{
+.myproducts-container{
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 5%;
-  .brands-boxes{
+  .myproducts-boxes{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     a{
       width: 22%;
-      height: 300px;
+      height: 260px;
       margin: 1.5%;
-      .brand-container{
+      border: 1px solid #252525;
+      .myproduct-container{
         position: relative;
         width: 100%;
         height: 100%;
         padding: 2%;
-        border: 1px solid #252525;
     
         display: flex;
-        .brand-img{
+        .myproduct-img{
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          height: 100%;
           width: 100%;
+          height: 100%;
           img{
-            width: 100%;
             height: 100%;
+            width: 100%;
           }
         }
       }
       &:hover{
         transition: ease-in-out 0.2s;
         transform: scale(0.95);
-        .brand-container{
-          transition: ease-in-out 0.2s;
-          border: 3px solid;
-          border-color: rgb(143, 241, 143);
-        }
+        border: 3px solid;
+        border-color: rgb(143, 241, 143);
       }
     }
   }
 }
 @media(max-width:1000px){
-  .brands-container{
-    .brands-boxes{
+  .myproducts-container{
+    .myproducts-boxes{
       width: 100%;
       a{
         width: 47%;
@@ -56,8 +53,8 @@
   }
 }
 @media(max-width: 540px){
-  .brands-container{
-    .brands-boxes{
+  .myproducts-container{
+    .myproducts-boxes{
       a{
         width: 100%;
       }

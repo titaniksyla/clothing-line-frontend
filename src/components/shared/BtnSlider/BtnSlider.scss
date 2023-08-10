@@ -1,0 +1,53 @@
+.btn-slide{
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #252525;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  .arrowleft, .arrowright{
+    width: 75%;
+    height: 75%;
+  }
+  &:hover{
+    transition: ease-in-out 0.2s;
+    color: rgb(143, 241, 143);
+    border: 2px solid rgb(143, 241, 143);
+  }
+}
+.next{
+  top: calc(50% - 35px);
+  left: 5%;
+}
+.prev{
+  top: calc(50% - 35px);
+  right: 5%;
+}
+@media(max-width:1050px){
+  .btn-slide{
+    width: 40px;
+    height: 40px; 
+  }
+}
+@media(max-width:768px){
+  .btn-slide{
+    width: 30px;
+    height: 30px; 
+  }
+  .next{
+    top: calc(50% - 30px);
+    left: 5%;
+  }
+  .prev{
+    top: calc(50% - 30px);
+    right: 5%;
+  }
+}
+@media(max-width:530px){
+ 
+}

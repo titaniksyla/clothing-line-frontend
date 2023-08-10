@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./NewProduct.scss";
@@ -6,8 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 function NewProduct() {
 
+  const [brandsData, setBrandsData] = useState([]);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [collectionsData, setCollectionsData] = useState([]);
+
   const [productName, setProductName] = useState(null);
   const [productDescription, setProductDescription] = useState(null);
+  const [brandValue, setBrandValue] = useState(null);
+  const [categoryValue, setCategoryValue] = useState(null);
+  const [collectionValue, setCollectionValue] = useState(null);
   const [productImage, setProductImage] = useState(null);
   const [productColor, setProductColor] = useState(null);
   const [productSize, setProductSize] = useState(null);
@@ -17,8 +24,19 @@ function NewProduct() {
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
-  const [productData, setProductData] = useState({});
-  const [changed, setChanged] = useState(false);
+  // const [productData, setProductData] = useState({});
+  // const [changed, setChanged] = useState(false);
+
+  useEffect( () => {
+    axios.get('http://localhost:8080/product')
+    .then( data => {
+      // console.log(data.data);
+      setBrandsData(data.data.allBrands);
+      setCategoriesData(data.data.allCategories);
+      setCollectionsData(data.data.allCollections);
+    })
+  }, [])
+
 
   function handleProductName(e) {
     setProductName(e.target.value);
@@ -26,6 +44,18 @@ function NewProduct() {
   }
   function handleProductDescription(e) {
     setProductDescription(e.target.value);
+    setShowError(false);
+  }
+  function handleBrandSelector(e) {
+    setBrandValue(e.target.value);
+    setShowError(false);
+  }
+  function handleCategorySelector(e) {
+    setCategoryValue(e.target.value);
+    setShowError(false);
+  }
+  function handleCollectionSelector(e) {
+    setCollectionValue(e.target.value);
     setShowError(false);
   }
   function handleProductImage(e) {
@@ -50,12 +80,14 @@ function NewProduct() {
   }
 
   function validateProduct() {
-    if (productName && productDescription && productImage && productColor && productSize && qtyInStock && price) {
-      setShowError(false);
-      
+    if (productName && productDescription  && brandValue && categoryValue && productImage && productColor && productSize && qtyInStock && price) {
       let user_id = localStorage.getItem('user_id'); 
-      
+
       let productObj = {
+        userId: user_id,
+        brandId: brandValue,
+        categoryId: categoryValue,
+        collectionId: collectionValue,
         product_name: productName,
         product_description: productDescription,
         product_image: productImage,
@@ -69,9 +101,8 @@ function NewProduct() {
         axios
         .post("http://localhost:8080/product", productObj)
         .then((data) => {
-          navigate('/itemslisted');
-          // setProductData(data.data);
           console.log('product data',data.data);
+          navigate(`/myproducts/${localStorage.getItem('user_id')}`);
           toast.success('You\'ve  registred your new product', {
             position: "bottom-right",
             autoClose: 5000,
@@ -82,8 +113,6 @@ function NewProduct() {
             progress: undefined,
             theme: "light",
             });
-            // console.log("id e productit", data.data.id);
-            // localStorage.setItem("product_id", data.data.id);
         });
       }catch(error){
         console.log(error);
@@ -131,6 +160,36 @@ function NewProduct() {
               />
             </div>
           </div>
+          <div className="lg-input">
+            <select name="brand" id="brand" onChange={handleBrandSelector}>
+              <option value="">Select brand..</option>
+              {brandsData.map( brand => {
+                return(
+                  <option key={brand.id} value={brand.id}>{brand.brand_name}</option>    
+                )
+              })}
+            </select>
+          </div>
+            <div className="lg-input">
+              <select name="category" id="category" onChange={handleCategorySelector}>
+                <option value="">Select category..</option>
+                {categoriesData.map( category => {
+                  return(
+                    <option key={category.id} value={category.id}>{category.category_name}</option>    
+                  )
+                })}
+              </select> 
+            </div>
+            <div className="lg-input">
+              <select name="collection" id="collection" onChange={handleCollectionSelector}>
+                <option value="">Select collection..</option>
+                {collectionsData.map( collection => {
+                  return(
+                    <option key={collection.id} value={collection.id}>{collection.collection_name}</option>    
+                  )
+                })}
+              </select> 
+            </div>
             <div className="lg-input">
               <input
                 type="text"
@@ -180,7 +239,7 @@ function NewProduct() {
           </div>
 
           <div className="btn-container">
-            <div className="newproduct-btn" onClick={ validateProduct}>
+            <div className="newproduct-btn" onClick={validateProduct}>
               Enter
             </div>
           </div>

@@ -61,3 +61,13 @@
     } 
   }
 }
+@media(max-width:464px){
+  .about-container{
+    .about-rows{
+      padding: 20px 0;
+      h1{
+        font-size: 35px;
+      }
+    } 
+  }
+}

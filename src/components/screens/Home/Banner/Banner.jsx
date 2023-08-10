@@ -10,7 +10,7 @@ function Banner(){
       <p>Exclusive & High-Quality Apparel Of The Most Popular Brands In The World Listed Here</p>
       </div>
       <div className='shop-btn'>
-        <Link to='/shop'>Shop All</Link>
+        <Link to='/products'>Shop All</Link>
       </div>
     </div>
   )

@@ -9,20 +9,30 @@ import Footer from "./components/shared/Footer/Footer";
 
 import Home from "./screens/Home/Home";
 import About from "./screens/About/About";
-import Shop from "./screens/Shop/Shop";
 import Contact from "./screens/Contact/Contact";
+
 import Login from "./screens/auth/Login/Login";
 import Signup from "./screens/auth/Signup/Signup";
 import MyProfile from "./screens/MyProfile/MyProfile";
-import NewProduct from "./components/shared/NewProduct/NewProduct";
-import MyItems from "./screens/MyItems/MyItems";
+
 import Brands from "./screens/Brands/Brands";
 import Brand from "./screens/Brand/Brand";
-// import MyProfile from './screens/MyProfile/MyProfile';
+
+import Products from "./screens/Products/Products";
+import Product from "./screens/Product/Product";
+import MyProducts from "./screens/MyProducts/MyProducts";
+import NewProduct from "./components/shared/NewProduct/NewProduct";
+
+import Collection from './screens/Collection/Collection'
+
+import Error from "./screens/Error/Error";
+import EditProduct from "./screens/EditProduct/EditProduct";
+import CartProducts from "./screens/CartProducts/CartProducts";
 
 function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState(null);
+  const [userId, setUserId] = useState(localStorage.getItem('user_id'));
 
 
   function userIsLoggedIn(userLoggedIn) {
@@ -61,12 +71,18 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/shop" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/newproduct" element={<NewProduct/>} />
-            <Route path="/itemslisted" element={<MyItems />} />
+            <Route path="/products" element={<Products/>} />
+            <Route path="/product/:productId" element={<Product/>} />
+            <Route path='/myproducts' element={<MyProducts />} />
+            <Route path='/brands' element={<Brands />} />
             <Route path='/brands/:brandId' element={<Brand />} />
+            <Route path='/error' element={<Error />} />
+            <Route path='/collection/:collectionId' element={<Collection />} />
+            <Route path='/editproduct/:productId' element={<EditProduct/>} />
+            <Route path='/cartproducts' element={<CartProducts/>} />
           </Routes>
         )}
         {!isUserLoggedIn && (
@@ -76,6 +92,8 @@ function App() {
             <Route path='/brands' element={<Brands />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/products" element={<Products/>} />
+            {/* <Route path='/collection/:collectionId' element={<Collection />} /> */}
             <Route
               path="/login"
               element={<Login logUserIn={userIsLoggedIn} />}

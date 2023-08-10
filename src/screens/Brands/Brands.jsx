@@ -50,8 +50,6 @@ function Brands() {
           return(
             <Link to={`/brands/${activeBox(data.id)}`} key={data.id}>
               <div className="brand-container" >
-                <div className='brand-info'>
-                </div>
                 <div className="brand-img">
                   <img src={data.brand_image_url} alt='logo' />
                 </div>

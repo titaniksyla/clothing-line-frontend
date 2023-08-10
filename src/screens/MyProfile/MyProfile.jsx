@@ -288,7 +288,7 @@ function MyProfile(props) {
               
               {localStorage.getItem("user_role") === "seller"  &&
                 <div className="btn-container">
-                  <Link to='/itemslisted'>My Listings</Link>
+                  <Link to={`/myproducts`}>My Listings</Link>
                 </div>
               }
               

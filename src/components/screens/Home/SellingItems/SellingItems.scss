@@ -1,0 +1,63 @@
+.sellItems-container{
+  width: 100%;
+  height: 100%;
+
+  padding: 10% 15%; 
+  background-color: #040F0F;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  h1,p{
+    text-align: center;
+  }
+  h1{
+    font-size: 35px;
+    font-family: prompt-semibold;
+    color: #8ff18f;
+  }
+  p{
+    font-size: 18px;
+    font-family: prompt-medium;
+    color: white;
+  }
+  .btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    p{
+      font-size: 12px;
+      font-family: prompt-medium;
+      padding: 10px 20px;
+      color: white;
+      border: 1px solid white;
+      border-radius: 18px;
+      cursor: pointer;
+      &:hover{
+        transition: ease-in-out 0.2s;
+        outline: 2px solid white;
+        a{
+          transform: scale(1.1);
+          transition: ease-in-out 0.2s;
+        }
+      }
+    }
+  }
+}
+@media(max-width: 464px){
+  .sellItems-container{
+    padding: 15%;
+    h1{
+      font-size: 20px;
+    }
+    p{
+      font-size: 14px;
+    }
+    .btn-container{
+      p{
+        padding: 6px 12px;
+        border-radius: 17px;
+        font-size: 12px;
+      }
+    }
+  }
+}
