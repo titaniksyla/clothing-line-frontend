@@ -106,8 +106,15 @@
     }  
   }
 }
+@media(max-width: 768px){
+  .myprofile-container{
+    padding: 10% 5%;
+  }
+}
+
 @media(max-width: 464px){
   .myprofile-container{
+    padding: 20% 5%;
     .myprofile-form-container{
       padding: 10% 5%;
       .myprofile-title{

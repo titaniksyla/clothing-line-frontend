@@ -41,6 +41,7 @@ function App() {
 
   function logUserOut(){
     setIsUserLoggedIn(false);
+    console.log(isUserLoggedIn);
     localStorage.clear();
     toast.success('You\'ve been logged out', {
       position: "bottom-right",
@@ -79,29 +80,30 @@ function App() {
             <Route path='/myproducts' element={<MyProducts />} />
             <Route path='/brands' element={<Brands />} />
             <Route path='/brands/:brandId' element={<Brand />} />
-            <Route path='/error' element={<Error />} />
             <Route path='/collection/:collectionId' element={<Collection />} />
             <Route path='/editproduct/:productId' element={<EditProduct/>} />
             <Route path='/cartproducts' element={<CartProducts/>} />
+            <Route path='*' element={<Error />} />
           </Routes>
         )}
         {!isUserLoggedIn && (
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/brands/:brandId' element={<Brand />} />
+            {/* <Route path='/brands/:brandId' element={<Brand />} /> */}
             <Route path='/brands' element={<Brands />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/products" element={<Products/>} />
-            {/* <Route path='/collection/:collectionId' element={<Collection />} /> */}
+            {/* <Route path="/products" element={<Products/>} /> */}
             <Route
               path="/login"
               element={<Login logUserIn={userIsLoggedIn} />}
             />
             <Route />
             <Route path="/signup" element={<Signup logUserIn={userIsLoggedIn}/>} />
+            <Route path='*' element={<Error />} />
           </Routes>
         )}
+        
         <Footer />
       </Router>
     </div>

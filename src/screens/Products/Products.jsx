@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './Products.scss'
 
@@ -13,7 +13,19 @@ function Products(){
 
   const[categoriesData, setCategoriesData] = useState([]);
   const[categoryValue, setCategoryValue] = useState('all');
-  const navigate = useNavigate();
+  
+  function handleSearchProduct(e){
+    const {value} = e.target;
+    if (value) {
+      setFilteredProductData(
+        productsData.filter( product => product.product_name.toLowerCase().includes(e.target.value.toLowerCase()))
+      )
+    } else {
+      console.log(productsData)
+      setFilteredProductData(productsData)
+    }
+    
+  }
 
   function handleBrandSelector(e){
     setBrandValue(e.target.value);
@@ -55,7 +67,7 @@ function Products(){
   }, [brandValue, categoryValue]);
 
 
-  console.log('brand value', brandValue, '| category value', categoryValue)
+  // console.log('brand value', brandValue, '| category value', categoryValue)
 
   useEffect(() => {
     try {
@@ -76,7 +88,7 @@ function Products(){
       <div className="products-filter">
         <form className='filter-form'>
           <div className="search-container">
-            <input type="text" placeholder='Kerkoni produktin..'/>
+            <input type="text" placeholder='Kerkoni produktin..' onChange={handleSearchProduct}/>
           </div>
           <div className="brands-filter">
             <label htmlFor="brands">Brands:</label>
@@ -105,19 +117,20 @@ function Products(){
         </form>
       </div>
       <div className="products-boxes">        
-        {filteredProductData.map((data) => {
+        {filteredProductData.map(({price, id, product_name, product_image}) => {
           return(
-            <div key={data.id} className='prod'>
+            <div key={id} className='prod'>
               <div className="abs-container">
-                    <p className='cmimi'>${data.price}</p>
+                    <p className='cmimi'>${price}</p>
                     <p className='zbritja'>-20%</p>
-                  </div>
+              </div>
               <div className="producti-container" >
                 <div className="product-img">
-                  <img src={data.product_image} alt='logo'/>
+                  <img src={product_image} alt='logo'/>
                 </div>
+                <h4>{product_name}</h4>
                 <div className="product-info">
-                  <Link to={`/product/${activeBox(data.id)}`}>Shiko produktin</Link>
+                  <Link to={`/product/${activeBox(id)}`}>Shiko produktin</Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './CartProducts.scss'
 
 import {GrFormClose} from 'react-icons/gr'
@@ -55,14 +55,21 @@ function CartProducts() {
 
   return (
     <div className='cartproducts-container'>
-      <div className="cartproducts">
+      {cartProducts.length === 0 && 
+        <div className="addItem">
+          <h1>There's no product added to cart</h1>
+          <Link to='/products'>Go Shop</Link>
+        </div>
+      }
+      {cartProducts.length > 0 && 
+        <div className="cartproducts">
         <div className="cartproducts-title">
           <h1>Added to cart</h1>
         </div>
         <div className="cartproducts-table">
 
           <div className="cartproducts-table-info">
-            <h3>ID:</h3>
+            {/* <h3>ID:</h3> */}
             <h3>Image:</h3> 
             <h3>Name:</h3> 
             <h3>Quantity:</h3> 
@@ -72,13 +79,13 @@ function CartProducts() {
           {cartProducts.map( product => {
             return(
               <div className="cartproduct-row" key={product.id}>
-                <p>{product.product_id}</p>
+                {/* <p>{product.product_id}</p> */}
                 <img src={product.product_image} alt="prod-img"/>
                 <p>{product.product_name}</p>
                 <p>{product.product_quantity}</p>
                 <p>{product.product_price}</p>
                 <div className="delete-btn" onClick={() => deleteCardProduct(product.id)}>
-                  <GrFormClose />
+                  <GrFormClose size={40} className='close'/>
                 </div>
               </div>
             )
@@ -87,6 +94,7 @@ function CartProducts() {
           }
         </div>
       </div>
+      }
     </div>
   )
 }

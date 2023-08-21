@@ -102,7 +102,7 @@ function NewProduct() {
         .post("http://localhost:8080/product", productObj)
         .then((data) => {
           console.log('product data',data.data);
-          navigate(`/myproducts/${localStorage.getItem('user_id')}`);
+          navigate(`/myproducts`);
           toast.success('You\'ve  registred your new product', {
             position: "bottom-right",
             autoClose: 5000,

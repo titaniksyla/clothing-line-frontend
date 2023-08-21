@@ -78,3 +78,13 @@
     }
   }
 }
+@media(max-width: 950px){
+  .login-container{
+    padding: 10% 5%;
+  }
+}
+@media(max-width: 500px){
+  .login-container{
+    padding: 20% 5%;
+  }
+}
